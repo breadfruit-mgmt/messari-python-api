@@ -44,13 +44,22 @@ class DataLoader:
         :return: JSON with requested data
         :raises SystemError if HTTP error occurs
         """
-        try:
-            response = self.session.get(endpoint_url, params=params, headers=headers)
-            response.raise_for_status()
+
+        response = self.session.get(endpoint_url, params=params, headers=headers)
+        if response.status_code != 200:
+            return 1
+        else:
             return response.json()
-        except requests.exceptions.HTTPError as e:
-            # NOTE if this doesn't work remove 'from e'
-            raise SystemError(e) from e
+        #requests.exceptions.HTTPError as e:
+        # NOTE if this doesn't work remove 'from e'
+        #raise SystemError(e) from e
+        #try:
+        #    response = self.session.get(endpoint_url, params=params, headers=headers)
+        #    response.raise_for_status()
+        #    return response.json()
+        #except requests.exceptions.HTTPError as e:
+        #    # NOTE if this doesn't work remove 'from e'
+        #    #raise SystemError(e) from e
 
     def translate(self, input_slugs: Union[str, List]) -> Union[List, None]:
         """Wrapper around messari.utils.validate_input,
