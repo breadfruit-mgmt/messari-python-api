@@ -540,6 +540,8 @@ class Messari(DataLoader):
         for asset in asset_slugs:
             url = base_url_template.substitute(asset_key=asset)
             response = self.get_response(url, params=payload, headers=self.api_dict)
+            if response = 1:
+                continue
             response_flat = convert_flatten(response['data'])
             response_data[asset] = response_flat
         if to_dataframe:
