@@ -544,6 +544,7 @@ class Messari(DataLoader):
                 continue
             response_flat = convert_flatten(response['data'])
             response_data[asset] = response_flat
+        display(response_data)
         if to_dataframe:
             timeseries_df = timeseries_to_dataframe(response_data)
             if asset_metric != 'price':
