@@ -63,45 +63,47 @@ class DeFiLlama(DataLoader):
             # This portion is basically grabbing tvl metrics on a per chain basis
 
             # TODO this is gonna be difficult
-            chain_tvls = protocol["chainTvls"]
-            chains = protocol["chains"]
-            chain_list = []
-            chain_df_list = []
-            for chain in chains:
-                chain_list.append(chain)
+            return protocol
+"""
+#            chains = protocol["chains"]
+#            chain_list = []
+#            chain_df_list = []
+#            for chain in chains:
+#                chain_list.append(chain)
 
                 # get timeseries
-                chain_tvl = chain_tvls[chain]["tvl"]
-                chain_tvl_tokens = chain_tvls[chain]["tokens"]
-                chain_tvl_tokens_usd = chain_tvls[chain]["tokensInUsd"]
+#                chain_tvl = chain_tvls[chain]["tvl"]
+#                chain_
+#                chain_tvl_tokens = chain_tvls[chain]["tokens"]
+#                 chain_tvl_tokens_usd = chain_tvls[chain]["tokensInUsd"]
 
                 # convert tokens & tokensInUsd
-                for token in chain_tvl_tokens:
-                    for key, value in token["tokens"].items():
-                        token[key] = value
-                    token.pop("tokens", None)
+#                 for token in chain_tvl_tokens:
+#                     for key, value in token["tokens"].items():
+#                         token[key] = value
+#                     token.pop("tokens", None)
 
-                for token in chain_tvl_tokens_usd:
-                    for key, value in token["tokens"].items():
-                        token[key] = value
-                    token.pop("tokens", None)
+#                 for token in chain_tvl_tokens_usd:
+#                     for key, value in token["tokens"].items():
+#                         token[key] = value
+#                     token.pop("tokens", None)
 
                 # convert to df
-                chain_tvl_df = pd.DataFrame(chain_tvl)
-                chain_tvl_tokens_df = pd.DataFrame(chain_tvl_tokens)
-                chain_tvl_tokens_usd_df = pd.DataFrame(chain_tvl_tokens_usd)
+#                 chain_tvl_df = pd.DataFrame(chain_tvl)
+#                 chain_tvl_tokens_df = pd.DataFrame(chain_tvl_tokens)
+#                 chain_tvl_tokens_usd_df = pd.DataFrame(chain_tvl_tokens_usd)
 
-                # fix indexes
-                chain_tvl_df = format_df(chain_tvl_df)
-                chain_tvl_tokens_df = format_df(chain_tvl_tokens_df)
-                chain_tvl_tokens_usd_df = format_df(chain_tvl_tokens_usd_df)
-                chain_tvl_tokens_usd_df = chain_tvl_tokens_usd_df.add_suffix("_usd")
+#                 # fix indexes
+#                 chain_tvl_df = format_df(chain_tvl_df)
+#                 chain_tvl_tokens_df = format_df(chain_tvl_tokens_df)
+#                 chain_tvl_tokens_usd_df = format_df(chain_tvl_tokens_usd_df)
+#                 chain_tvl_tokens_usd_df = chain_tvl_tokens_usd_df.add_suffix("_usd")
 
-                # concat tokens and tokensInUsd
-                joint_tokens_df = pd.concat([chain_tvl_tokens_df, chain_tvl_tokens_usd_df], axis=1)
-                # Join total chain TVL w/ token TVL
-                chain_df = chain_tvl_df.join(joint_tokens_df)
-                chain_df_list.append(chain_df)
+#                 # concat tokens and tokensInUsd
+#                 joint_tokens_df = pd.concat([chain_tvl_tokens_df, chain_tvl_tokens_usd_df], axis=1)
+#                 # Join total chain TVL w/ token TVL
+#                 chain_df = chain_tvl_df.join(joint_tokens_df)
+#                 chain_df_list.append(chain_df)
 
         
             ###########################
@@ -150,7 +152,7 @@ class DeFiLlama(DataLoader):
 
         total_slugs_df = time_filter_df(total_slugs_df, start_date=start_date, end_date=end_date)
         return total_slugs_df
-
+"""
     def get_global_tvl_timeseries(self, start_date: Union[str, datetime.datetime] = None,
                                   end_date: Union[str, datetime.datetime] = None) -> pd.DataFrame:
         """Returns timeseries TVL from total of all Defi Llama supported protocols
