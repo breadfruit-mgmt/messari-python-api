@@ -58,7 +58,7 @@ class DeFiLlama(DataLoader):
         for slug in slugs:
             endpoint_url = DL_GET_PROTOCOL_TVL_URL.substitute(slug=slug)
             protocol = self.get_response(endpoint_url)
-
+            display(protocol)
             ###########################
             # This portion is basically grabbing tvl metrics on a per chain basis
 
@@ -103,6 +103,7 @@ class DeFiLlama(DataLoader):
                 chain_df = chain_tvl_df.join(joint_tokens_df)
                 chain_df_list.append(chain_df)
 
+        
             ###########################
             # This portion is basically grabbing tvl metrics for all chains combined
 
