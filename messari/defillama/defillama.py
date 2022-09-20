@@ -63,7 +63,7 @@ class DeFiLlama(DataLoader):
             # This portion is basically grabbing tvl metrics on a per chain basis
 
             # TODO this is gonna be difficult
-            return protocol
+        return protocol
 """
 #            chains = protocol["chains"]
 #            chain_list = []
