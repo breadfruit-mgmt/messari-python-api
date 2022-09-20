@@ -36,18 +36,14 @@ class DeFiLlama(DataLoader):
                                     end_date: Union[str, datetime.datetime] = None) -> pd.DataFrame:
         """Returns times TVL of a protocol with token amounts as a pandas DataFrame.
         Returned DataFrame is indexed by df[protocol][chain][asset].
-
         Parameters
         ----------
            asset_slugs: str, list
                Single asset slug string or list of asset slugs (i.e. bitcoin)
-
            start_date: str, datetime.datetime
                Optional start date to set filter for tvl timeseries ("YYYY-MM-DD")
-
            end_date: str, datetime.datetime
                Optional end date to set filter for tvl timeseries ("YYYY-MM-DD")
-
         Returns
         -------
            DataFrame
@@ -62,8 +58,6 @@ class DeFiLlama(DataLoader):
         for slug in slugs:
             endpoint_url = DL_GET_PROTOCOL_TVL_URL.substitute(slug=slug)
             protocol = self.get_response(endpoint_url)
-            display(protocol)
-            #display(pd.DataFrame(protocol))
 
             ###########################
             # This portion is basically grabbing tvl metrics on a per chain basis
@@ -159,15 +153,12 @@ class DeFiLlama(DataLoader):
     def get_global_tvl_timeseries(self, start_date: Union[str, datetime.datetime] = None,
                                   end_date: Union[str, datetime.datetime] = None) -> pd.DataFrame:
         """Returns timeseries TVL from total of all Defi Llama supported protocols
-
         Parameters
         ----------
            start_date: str, datetime.datetime
                Optional start date to set filter for tvl timeseries ("YYYY-MM-DD")
-
            end_date: str, datetime.datetime
                Optional end date to set filter for tvl timeseries ("YYYY-MM-DD")
-
         Returns
         -------
            DataFrame
@@ -183,18 +174,14 @@ class DeFiLlama(DataLoader):
                                  start_date: Union[str, datetime.datetime] = None,
                                  end_date: Union[str, datetime.datetime] = None) -> pd.DataFrame:
         """Retrive timeseries TVL for a given chain
-
         Parameters
         ----------
            chains_in: str, list
                Single asset slug string or list of asset slugs (i.e. bitcoin)
-
            start_date: str, datetime.datetime
                Optional start date to set filter for tvl timeseries ("YYYY-MM-DD")
-
            end_date: str, datetime.datetime
                Optional end date to set filter for tvl timeseries ("YYYY-MM-DD")
-
         Returns
         -------
            DataFrame
@@ -223,12 +210,10 @@ class DeFiLlama(DataLoader):
 
     def get_current_tvl(self, asset_slugs: Union[str, List]) -> Dict:
         """Retrive current protocol tvl for an asset
-
         Parameters
         ----------
            asset_slugs: str, list
                Single asset slug string or list of asset slugs (i.e. bitcoin)
-
         Returns
         -------
            DataFrame
@@ -252,7 +237,6 @@ class DeFiLlama(DataLoader):
     def get_protocols(self) -> pd.DataFrame:
         """Returns basic information on all listed protocols, their current TVL
         and the changes to it in the last hour/day/week
-
         Returns
         -------
         DataFrame
@@ -269,9 +253,7 @@ class DeFiLlama(DataLoader):
 
     def get_chains(self) -> List[str]:
         """Get the names of all chains supported by Defi Llama
-
         Used downstream to get the names/TVL of protocols on each chain
-
         Returns
         -------
         List
