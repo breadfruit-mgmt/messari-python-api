@@ -7,9 +7,9 @@ from typing import Union, List, Dict
 
 import pandas as pd
 
-from messari.dataloader import DataLoader
+from messariV2.dataloader import DataLoader
 # Local imports
-from messari.utils import validate_input, get_taxonomy_dict, time_filter_df
+from messariV2.utils import validate_input, get_taxonomy_dict, time_filter_df
 from .helpers import format_df
 
 ##########################
