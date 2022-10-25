@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 
 setup(
-    name='messari',
+    name='messariV2',
     version='0.0.1',
     packages=['messariV2',
               'messariV2.messari',
