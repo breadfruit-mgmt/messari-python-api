@@ -9,10 +9,10 @@
 import json
 import os
 
-import messari
-from messari.messari import Messari
-from messari.tokenterminal import TokenTerminal
-from messari.defillama import DeFiLlama
+import messariV2
+from messariV2.messari import Messari
+from messariV2.tokenterminal import TokenTerminal
+from messariV2.defillama import DeFiLlama
 
 ##########################
 # Get all DeFi Llama slugs
