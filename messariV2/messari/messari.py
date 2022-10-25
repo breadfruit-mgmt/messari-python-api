@@ -4,8 +4,8 @@ from string import Template
 from typing import Union, List, Dict
 import pandas as pd
 
-from messari.dataloader import DataLoader
-from messari.utils import validate_input, convert_flatten, unpack_list_of_dicts
+from messariV2.dataloader import DataLoader
+from messariV2.utils import validate_input, convert_flatten, unpack_list_of_dicts
 from .helpers import fields_payload, timeseries_to_dataframe
 
 BASE_URL = 'https://data.messari.io/api/v1/assets'
