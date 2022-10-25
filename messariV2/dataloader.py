@@ -3,7 +3,7 @@
 
 from typing import List, Union, Dict
 import requests
-from messari.utils import validate_input
+from messariV2.utils import validate_input
 
 
 class DataLoader:
